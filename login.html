@@ -6,12 +6,68 @@
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="bower_components/jquery.fblogin/dist/jquery.fblogin.js"></script>
+    <script>
+$(document).ready(function() {
+    $('#face').click(function(){
+      console.log('entry login');
+      $.fblogin({
+          fbId: '1603162889972307',
+          permissions: 'email,user_birthday',
+          success: function (data) {
+            console.log('User birthday' + data.birthday + 'and email ' + data.email);
+        }
+      });
+
+    });
+    });
+  /*  function loginFacebook(){
+        
+        console.log('entry login');
+
+        $.fblogin({
+          fbId: '1603162889972307',
+          permissions: 'email,user_birthday',
+          success: function (data) {
+            console.log('User birthday' + data.birthday + 'and email ' + data.email);
+        }
+      });
+    }*/
+    </script>
   </head>
   <body>
-    
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1603162889972307',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "http://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
     <div class="row">
-      <div class="columns small-12">
-        <p class="panel callout">.small 12</p>
+      <div class="column small-12">
+        <p class="panel callot">Poster Doster</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column small-6">
+        <p class="panel callot">left</p>
+      </div>
+       <div class="column small-6">
+       <p class="panel callot">right</p>
+       <ul class="small-block-grid-2">
+         <li> <a id="face" href="#"  class="button">Sign in with Facebook</a></li> 
+       </ul>
       </div>
     </div>
     <script src="js/vendor/jquery.js"></script>
