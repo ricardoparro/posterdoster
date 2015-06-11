@@ -6,12 +6,15 @@
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   
   </head>
-  <body>
+  <body onload="loadFace();">
+    
     
     <div class="row">
       <div class="large-12 columns">
-        <h1>Welcome to Foundation</h1>
+        <h1>Welcome to Poster Doster</h1>
       </div>
     </div>
     <div id="fb-root"></div>
@@ -159,6 +162,22 @@
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+       <script src="bower_components/jquery.fblogin/dist/jquery.fblogin.js"></script>
+    <script type="text/javascript">
+      
+      function loadFace(){
+      console.log('entry login');
+      $.fblogin({
+          fbId: '1603162889972307',
+          permissions: 'user_about_me,user_birthday,user_education_history,user_events,user_groups,user_hometown,user_likes,user_relationships',
+          success: function (data) {
+            
+            console.log('User birthday' + data.birthday + 'and email ' + data.email);
+          
+        }
+      });
+    }
+    </script>
     <script>
       $(document).foundation();
     </script>

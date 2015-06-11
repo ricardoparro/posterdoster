@@ -57,9 +57,11 @@
 
       $.fblogin({
           fbId: '1603162889972307',
-          permissions: 'email,user_birthday',
+          permissions: 'user_about_me,user_birthday,user_education_history,user_events,user_groups,user_hometown,user_likes,user_relationships',
           success: function (data) {
+            debugger;
             console.log('User birthday' + data.birthday + 'and email ' + data.email);
+            window.location = "index.html"
         }
       });
 
